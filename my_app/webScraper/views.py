@@ -28,7 +28,7 @@ def test_List(request):
 
         if serializer.is_valid():
          
-            return Response(serializer, status = status.HTTP_201_CREATED)
+            return JsonResponse({'DATA':request.data}, status = status.HTTP_201_CREATED)
             # return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
 
 @api_view(['GET','DELETE'])
