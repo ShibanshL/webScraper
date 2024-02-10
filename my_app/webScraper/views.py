@@ -81,6 +81,10 @@ def fetchData(e):
     testData = []
 
     options = webdriver.EdgeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    # options.binary_location = "/usr/bin/google-chrome"
 
     service_Local = Service(executable_path='edge/msedgedriver.exe')
 
