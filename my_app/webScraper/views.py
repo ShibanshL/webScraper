@@ -12,7 +12,7 @@ tikData = []
 
 # Create your views here.
 def myGetReq(response):
-    return JsonResponse({'name':'MY NAME IS KHAN'}, safe=False)
+    return JsonResponse({'Name':'congrats this is working!!!'}, safe=False)
 
 @api_view(['GET','POST'])
 def test_List(request):
