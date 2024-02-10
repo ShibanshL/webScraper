@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'my_app.webScraper',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'edge'
 ]
 
 MIDDLEWARE = [
