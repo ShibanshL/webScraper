@@ -28,7 +28,8 @@ def test_List(request):
 
         if serializer.is_valid():
          
-            return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
+            return Response(serializer, status = status.HTTP_201_CREATED)
+            # return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
 
 @api_view(['GET','DELETE'])
 def paramsSent(request, key_id):
