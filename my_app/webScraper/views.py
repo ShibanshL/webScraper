@@ -82,7 +82,7 @@ def fetchData(e):
 
     options = webdriver.EdgeOptions()
 
-    service_Local = Service('edge/msedgedriver')
+    service_Local = Service(executable_path='edge/msedgedriver.exe')
 
     # driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
