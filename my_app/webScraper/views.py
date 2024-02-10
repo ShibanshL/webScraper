@@ -28,8 +28,8 @@ def test_List(request):
 
         if serializer.is_valid():
          
-            return JsonResponse({'DATA':request.data}, status = status.HTTP_201_CREATED)
-            # return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
+            # return JsonResponse({'DATA':request.data}, status = status.HTTP_201_CREATED)
+            return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
 
 @api_view(['GET','DELETE'])
 def paramsSent(request, key_id):
@@ -80,7 +80,14 @@ def fetchData(e):
 
     testData = []
 
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+    options = webdriver.EdgeOptions()
+
+    service_Local = Service('edge/msedgedriver.exe')
+
+    # driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+
+    driver = webdriver.Edge(service=service_Local, options=options)
+
     for sym in e:
         oktest(sym['Symbol'], driver, testData)
 
