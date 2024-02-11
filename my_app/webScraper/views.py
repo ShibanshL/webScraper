@@ -86,7 +86,7 @@ def fetchData(e):
     options.add_argument("--no-sandbox")
     # options.binary_location = "/usr/bin/google-chrome"
 
-    service_Local = Service(executable_path='edge/msedgedriver.exe')
+    service_Local = Service(executable_path='/edge/msedgedriver')
 
     # driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
