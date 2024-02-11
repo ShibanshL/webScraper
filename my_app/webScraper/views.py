@@ -86,11 +86,11 @@ def fetchData(e):
     options.add_argument("--no-sandbox")
     # options.binary_location = "/usr/bin/google-chrome"
 
-    # service_Local = Service(executable_path='/edge/msedgedriver')
+    service_Local = Service(executable_path='edge/msedgedriver.exe')
 
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+    # driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
-    # driver = webdriver.Edge(service=service_Local, options=options)
+    driver = webdriver.Edge(service=service_Local, options=options)
 
     for sym in e:
         oktest(sym['Symbol'], driver, testData)
