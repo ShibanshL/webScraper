@@ -20,15 +20,18 @@ def test_List(request):
         # return JsonResponse({"GET_WORKING":True})
         localObj = webScrModel.objects.all()
         localSerializer = webScrSerializer(localObj,many=True)
-        return Response(localSerializer.data)
+        return JsonResponse({'DATA':'request.data'}, status = status.HTTP_201_CREATED)
+
+        # return Response(localSerializer.data)
     if request.method == 'POST':
         localObj = webScrModel.objects.all()
 
         serializer = webScrSerializer(data=request.data, many=True)
+        print(request.data)
 
         if serializer.is_valid():
          
-            # return JsonResponse({'DATA':request.data}, status = status.HTTP_201_CREATED)
+            # return JsonResponse({'DATA':'request.data'}, status = status.HTTP_201_CREATED)
             return Response(fetchData(request.data), status = status.HTTP_201_CREATED)
 
 @api_view(['GET','DELETE'])
@@ -81,22 +84,25 @@ def fetchData(e):
     testData = []
 
     options = webdriver.EdgeOptions()
-    options.add_argument("--headless")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--no-sandbox")
+    options.binary_location=r'edge\msedgedriver'
+    # options.add_argument("--headless")
+    # options.add_argument("--disable-gpu")
+    # options.add_argument("--no-sandbox")
     # options.binary_location = "/usr/bin/google-chrome"
 
-    # service_Local = Service(executable_path='/edge/msedgedriver')
+    service_Local = Service(executable_path='edge/msedgedriver')
 
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+    # driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
-    # driver = webdriver.Edge(service=service_Local, options=options)
+    driver = webdriver.Edge(options=options)
 
     for sym in e:
         oktest(sym['Symbol'], driver, testData)
 
 
     driver.quit()
+
+    # print(testData)
 
     return testData
 
