@@ -23,10 +23,5 @@
       "src": "/(.*)",
       "dest": "my_app/wsgi.py"
     }
-  ],
-  "functions": {
-    "/manage.py": {
-      "maxDuration": 5
-    }
-  }
+  ]
 }
