@@ -85,8 +85,8 @@ def fetchData(e):
 
     options = webdriver.EdgeOptions()
     options.binary_location=r'edge\msedgedriver'
-    # options.add_argument("--headless")
-    # options.add_argument("--disable-gpu")
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
     # options.add_argument("--no-sandbox")
     # options.binary_location = "/usr/bin/google-chrome"
 
