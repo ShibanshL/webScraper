@@ -23,5 +23,11 @@
       "src": "/(.*)",
       "dest": "my_app/wsgi.py"
     }
-  ]
+  ],
+
+  "functions": {
+    "api/test.py": {
+      "maxDuration": 60
+    }
+  }
 }
